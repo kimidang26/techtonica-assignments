@@ -1,0 +1,27 @@
+body {
+    background-color: #FDF3E0;
+  }
+
+  h1, p {
+    color: #BE842B  ;
+  }
+
+  h1, h2{
+    font-family: 'Mochiy Pop One', sans-serif;
+    color:#BE842B;
+  }
+  
+  .description{
+    max-width: 600px;
+  }
+
+  .left {
+    max-width: 600px;
+    float: left;
+  }
+
+  .right {
+    max-width: 600px;
+    float: right;
+    margin-left: 30px;
+  }
