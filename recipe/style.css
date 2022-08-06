@@ -3,10 +3,51 @@ body {
   background-color: #FDF3E0;
 }
 
-h1, p {
+/* .nav___links {
+  list-style: none;
+  display:block;
+  float: right;
+  padding: 14px 16px;
+} */
+
+.topnav{
+
+    background-color: #BE842B;
+    overflow: hidden;
+    border: none;
+    color: rgb(9, 4, 4);
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    
+
+}
+
+.topnav a {
+  
+    color: #0a0623;
+    padding: 14px 16px;
+    text-decoration:none;
+    border: 3em;
+    float: left;
+  
+
+}
+
+.topnav a:hover {
+  background:white;
+  color:#BE842B;
+}  
+
+ p {
   color: #BE842B  ;
 }
 
+#headertag{
+  text-align: center;
+}
 h1, h2, h3{
   font-family: 'Mochiy Pop One', sans-serif;
   color:#BE842B;
@@ -14,6 +55,8 @@ h1, h2, h3{
 
 .description{
   max-width: 600px;
+  text-align: center;
+  margin: auto;
 }
 
 .left {
@@ -23,8 +66,6 @@ h1, h2, h3{
 
 ul, ol {
 padding: 25px 50px 75px 100px;
-
-
  
 }
 
@@ -36,13 +77,44 @@ li{
 }
 
 
-.right {
-  max-width: 500px;
-  float: right;
-  margin-left: 30px;
-  border-radius: 25px;
-  border: 5px solid #555;
+img{
+  width: 32%;
+  
 }
+
+@media only screen and (max-width :1080px){
+  img {
+    width:100%;
+  }
+  .ingredients {
+    width:100%;
+  }
+
+}
+
+@media screen and (max-width: 500px){
+  body {
+    background-color: #ebc0ec;
+  }
+
+  .topnav{
+    background-color: #724217 ;
+  }
+/*   .nav___links li a{
+    text-align: center;
+    float: none;
+    overflow: hidden; */
+    
+/*   } */
+  .topnav a{
+    display:block;
+/*      flex-direction: column; */
+    float: none;
+    
+  }
+}
+
+
 
 
 .accordion {
@@ -66,4 +138,5 @@ li{
     background-color: white;
     display: none;
     overflow: hidden;
-}
+   
+
