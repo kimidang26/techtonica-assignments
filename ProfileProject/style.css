@@ -33,8 +33,9 @@ body{
     color: #000;
     padding: 35px 20px;
     color: #fff;
-
 }
+
+
 
 .intro{
     display: flex;
@@ -48,6 +49,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
 }
+
 
 .intro h1{
     font-family:'Quicksand', sans-serif;
@@ -155,6 +157,7 @@ body{
     font-family:'Quicksand', sans-serif;
 }
 
+
 .about-me-text p{
     font-size: 20px;
     color: #585858;
@@ -163,6 +166,7 @@ body{
     font-family:'Quicksand', sans-serif;
    
 }
+
 
 .footer{
     display: flex;
@@ -218,3 +222,64 @@ input[type=submit] {
     cursor: pointer;
   }
 
+
+
+
+@media (max-width: 390px){
+    .nav-items {
+        flex-direction: column;
+        font-size: small;
+        
+}
+
+    .nav-items a{
+        padding-bottom: 8px;
+        padding-top: 8px;
+        padding-left: 10px;
+        padding-right: 8px;
+}
+
+    .logo{
+        display: none;
+    }
+
+    .intro h1{
+        text-align: center;
+    }  
+    
+    .about-me{
+        flex-direction: column-reverse;
+        
+    }
+
+    .about-me img {
+        width: 146px;
+        height: 204px;
+    }
+
+    .about-me-text p {
+        width: 300px;
+    }
+
+    .experiences {
+        flex-direction: column;
+    }
+
+    }
+
+    .experiences .work{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    
+
+ /* @media (max-width: 500px){
+        .intro h1{
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+        
+        }
+    } */
