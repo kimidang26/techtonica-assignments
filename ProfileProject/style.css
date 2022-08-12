@@ -259,13 +259,14 @@ input[type=submit] {
 
     .about-me-text p {
         width: 300px;
+    
     }
 
     .experiences {
         flex-direction: column;
     }
 
-    }
+    
 
     .experiences .work{
         margin-top: 40px;
