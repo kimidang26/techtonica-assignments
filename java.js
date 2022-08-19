@@ -26,7 +26,7 @@ function play(){
     
     // console.log({user_guess})
     if (user_guess < 1 || user_guess > rangeVar){
-        return "Please choose a number between your range";
+        alert( "Please choose a number between your range");
     }  else { 
         triedNumbers.push(user_guess)
         numberOfGuess ++;  
