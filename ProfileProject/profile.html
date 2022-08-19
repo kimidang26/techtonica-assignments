@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Kimberly's Profile Page</title>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo" >Profile Page Project</a> 
+        <div class="nav-bar">
+            <nav class="nav-items">
+                <a href="#">Home</a>
+                <a href="https://github.com/kimidang26">GitHub</a>
+                <a href="https://www.linkedin.com/feed/" target="_blank">LinkedIn</a>
+                <a href="profile.html#contactMe">Contact Me</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="intro">
+            <h1>Kimberly Dang</h1>
+            <p>Software Engineer in Training </p>
+            <button id="button">Video: Day in the life</button>
+        </div>
+        <div class="about-me">
+            <div class="about-me-text">
+                <h2>About Me</h2>
+                <p>Codecademy: HTML, Built a full-stack web app to allow users to simulate and visualize outcomes of poker hands against opponents of different play styles using open source cards.js on the front-end </p>
+                <p>Codecademy: CSS Built a full-stack web app to allow users to simulate and visualize outcomes of poker hands against opponents of different play styles using open source cards.js on the front-end </p>
+                <p>Codecademy: JavaScript Built a full-stack web app to allow users to simulate and visualize outcomes of poker hands against opponents of different play styles using open source cards.js on the front-end</p>
+            </div>
+            <img src="ProfPic.jpeg">
+        </div>
+
+     <div class="experiences">
+            <div class="work">
+                <i><span class="material-symbols-rounded">web</span></i>
+                <p class="work-heading">Projects</p>
+                <p class="work-text"><a href="https://github.com/kimidang26/techtonica-assignments-/blob/main/recipe/index.html">Recipe Page</a></p>
+                <p class="work-text"><a href="https://github.com/kimidang26/techtonica-assignments-/blob/main/recipe/index.html">eCommerce Page</a></p>
+                <p class="work-text"><a href="https://github.com/kimidang26/techtonica-assignments-/blob/main/recipe/index.html">Games Page</a></p>
+            </div>
+            <div class="work">
+                <i><span class="material-symbols-rounded">accessibility_new</span></i>
+                <p class="work-heading">Skills</p>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+            </div>
+            <div class="work">
+                <i><span class="material-symbols-rounded">forum</span></i>
+                <p class="work-heading">Social Medias</p>
+                    <ul>
+                        <li><a href="https://www.tiktok.com/@kiimberlydang">TikTok</a></li>
+                        <li><a href="https://mobile.twitter.com/kimberlyydang">Twitter</a></li>
+                        <li><a href="https://mobile.twitter.com/kimberlyydang">Facebook</a></li>
+                    </ul>
+                    
+            </div>
+     </div>
+
+
+    <div id="contactMe">
+    <form id="user_form">
+        <h1>Contact Me</h1>
+        <section class="questionOne">
+            <label for="name">Your Name</label>
+            <input type="text" name="name" id="name" required>
+        </section>
+        <br>
+        <section class="questionTwo">
+            <label for="contactType">How did you hear about my page?</label>
+            <select name="contactType" id="contactType">
+              <option value="facebook">Facebook</option>
+              <option value="linkedIn">LinkedIn</option>
+              <option value="Other">Other</option>
+            </select>
+          </section>
+          <section class="otherQuestionTwo">
+            <label for="other">If other, please type an answer:</label>
+            <textarea id="other" name="other" rows="1" cols="40"></textarea>
+         </section>
+         <br>
+        <section class="subscribe">
+             <span>Would you like to subscribe to my page?</span>
+             <br>
+                <input type="radio" name="yessubscribe" id="yessubscribe" value="yes">
+                <label for="yes">Yes! Please subscribe me.</label>
+                <input type="radio" name="nosubscribe" id="nosubscribe" value="no">
+                <label for="no">No, thank you</label>
+        </section> 
+        <section class="email">
+            <label for="email">If yes, please type your email</label>
+             <textarea id="email" name="email" rows="2" cols="40" ></textarea>
+         </section>  
+        <br>
+         <section class="comments">
+            <label for="comments">Questions or Comments</label>
+             <textarea id="comments" name="comments" rows="5" cols="40"></textarea>
+         </section>  
+         <br>
+         <section class="submission">
+            <input type="submit" value="Submit">
+          </section>
+     </form>  
+     </div> 
+    </main>
+
+<footer class="footer">
+    <div class="copy">&copy; 2022 Developer</div>
+
+</footer>
+<script type="text/javascript" src="java.js"></script>
+</body>
+</html>
