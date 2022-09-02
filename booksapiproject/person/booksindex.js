@@ -11,17 +11,7 @@ async function showBooks(){
         console.log(`${isbn}`)
     };
     
-    const deleteBook = (evt) => {
-        // const xhttp = new XMLHttpRequest();
-    
-        // xhttp.open("DELETE", `http://localhost:2626/book/${isbn}`, false);
-        // xhttp.send();
-        console.log("Trying to Delete!");
-        console.log(evt);
-        // Reloading the page
-        // location.reload();
-    };
-    
+ 
     const setEditModal = (isbn) => {
         // Get information about the book using isbn
         const xhttp = new XMLHttpRequest();
@@ -38,6 +28,7 @@ async function showBooks(){
         } = book;
     
         // Filling information about the book in the form inside the modal
+        
         document.getElementById('isbn').value = isbn;
         document.getElementById('title').value = title;
         document.getElementById('author').value = author;
@@ -55,13 +46,13 @@ async function showBooks(){
                 <div class="col-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="class-title> ${books.title}</h5>
+                            <h5 class="class-title"> ${book.title}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">${book.isbn}</h6>
                             <div>Author: ${book.author}</div>
                             <div>Format: ${book.format}</div>
                             <div>Isbn: ${book.isbn}</div>
                              <br>
-                             <button onclick="deleteBook(${book.isbn})" type="button" class="btn btn-danger" id ="${book.isbn}">Delete</button> 
+                             <button onclick="deleteBook('${book.isbn}')" type="button" class="btn btn-danger" id ="${book.isbn}">Delete</button> 
 
                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editBookModal" onclick="setEditModal(${book.isbn})"> Edit </button>
         
@@ -80,3 +71,13 @@ async function showBooks(){
 showBooks();
 
 
+function deleteBook(isbn){
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.open("DELETE", `http://localhost:2626/book/${isbn}`, false);
+    xhttp.send();
+    console.log("Trying to Delete!");
+    // console.log(evt);
+    // Reloading the page
+    location.reload();
+};
