@@ -10,33 +10,6 @@ async function showBooks(){
     function printIsbn(isbn){
         console.log(`${isbn}`)
     };
-    
- 
-    const setEditModal = (isbn) => {
-        // Get information about the book using isbn
-        const xhttp = new XMLHttpRequest();
-    
-        xhttp.open("GET", `http://localhost:2626/book/${isbn}`, false);
-        xhttp.send();
-        console.log("Im trying to edit!");
-    
-        const book = JSON.parse(xhttp.responseText);
-    
-        const {
-            title,
-            author,
-        } = book;
-    
-        // Filling information about the book in the form inside the modal
-        
-        document.getElementById('isbn').value = isbn;
-        document.getElementById('title').value = title;
-        document.getElementById('author').value = author;
-    
-        // Setting up the action url for the book
-        document.getElementById('editForm').action = `http://localhost:2626/book/${isbn}`;
-    
-    };
 
 
     for (let book of responseBooks){
@@ -80,4 +53,32 @@ function deleteBook(isbn){
     // console.log(evt);
     // Reloading the page
     location.reload();
+};
+
+const setEditModal = (isbn) => {
+    // Get information about the book using isbn
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.open("GET", `http://localhost:2626/book/${isbn}`, false);
+    xhttp.send();
+    console.log("Im trying to edit!");
+
+    const book = JSON.parse(xhttp.responseText);
+
+    const {
+        title,
+        author,
+        format
+    } = book;
+
+    // Filling information about the book in the form inside the modal
+    
+    document.getElementById('isbn').value = isbn;
+    document.getElementById('title').value = title;
+    document.getElementById('author').value = author;
+    document.getElementById('format').value = format;
+
+    // Setting up the action url for the book
+    document.getElementById('editForm').action = `http://localhost:2626/book/${isbn}`;
+
 };

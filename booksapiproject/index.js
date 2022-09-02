@@ -110,7 +110,7 @@ app.post('/book/:isbn', (req, resp) => {
         }
     }
 
-    resp.send('Book is edited');
+    resp.redirect('/');
 });
 
 
