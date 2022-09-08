@@ -21,7 +21,7 @@ app.get("/api/weather", (req, res) => {
       "dt": 1646318698,
       "sunrise": 1646306882,
       "sunset": 1646347929,
-      "temp": 48,
+      "temp": 48 ,
       "feels_like": 41,
       "pressure": 1014,
       "humidity": 65,
@@ -32,14 +32,14 @@ app.get("/api/weather", (req, res) => {
       "wind_speed": 8.75,
       "wind_deg": 360,
       "wind_gust": 13.89,
-      "weather": [
+      "weather": 
         {
           "id": 802,
           "main": "Clouds",
           "description": "scattered clouds",
           "icon": "03d"
         },
-      ],
+      
     },
  }];
  res.json(WEATHER);
