@@ -1,10 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from 'react';
+import Weather from './components/Weather'
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to Kimberly's Weather App</h1>
+      <h1>New York Weather</h1>
+  
+      <Weather />
     </div>
   );
 }
