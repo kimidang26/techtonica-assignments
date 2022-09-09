@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 
 
 const Weather = (props) => {
-    const [weather, setWeather] = useState([]);
+    const [weather, setWeather] = useState(null);
 
     const loadData = () => {
         fetch("http://localhost:1212/api/weather")
@@ -10,6 +10,7 @@ const Weather = (props) => {
         .then((data) => {
             console.log(data);
             setWeather(data);
+            // console.log(weather);
         });
     };
 
@@ -17,8 +18,10 @@ const Weather = (props) => {
     useEffect(()=>{
         loadData();
     }, []);
-
-
+    if (!weather){
+       return <div>loading..</div> 
+    }
+    else {
     return (
         <div>
                     <p>
@@ -55,6 +58,7 @@ const Weather = (props) => {
                </div>     
        
     );
+};
 };
 
 export default Weather;

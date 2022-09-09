@@ -5,19 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  background-color: lightskyblue;
-  color: white;
-  font-family: Arial Rounded MT Bold; 
-  background-image: url("https://metrolinktrains.com/globalassets/explore/orange/irvine-spectrum-azusa-tarn.jpg") ;
+  background-size: cover; */
+  /* background-color: lightskyblue; */
+  
  
   
 } 
 
- code {
+code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } 
