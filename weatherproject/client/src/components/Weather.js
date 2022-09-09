@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react";
 
+
 const Weather = (props) => {
     const [weather, setWeather] = useState([]);
 
@@ -20,11 +21,9 @@ const Weather = (props) => {
 
     return (
         <div>
-            {weather.map((weather,index)=>{
-                return (
-                    <p key={index}>
-                        City Name: {weather.timezone} <br></br>
-                        Latitude {weather.lat} <br></br>
+                    <p>
+                        City Name: {weather.name} 
+                       { /* Latitude {weather.lat} <br></br>
                         Longitude {weather.lon} <br></br>
                        Humidity {weather.current.humidity}<br></br>
                        Temperature {weather.current.temp} F<br></br>
@@ -32,13 +31,29 @@ const Weather = (props) => {
                        Wind Speed {weather.current.wind_speed} mph<br></br>
                        Decription {weather.current.weather.description} <br></br>
                        <img src ={` http://openweathermap.org/img/wn/09d@2x.png`}
+         alt="wthr img" /> */}
+                    </p>  
+                    <p>
+                        Longitude: {weather.coord.lon} 
+                    </p>
+                    <p>
+                        Latitude: {weather.coord.lat}
+                    </p>
+                    <p>
+                        Temp: {weather.main.temp}
+                    </p>
+                    <p>
+                        Humidity: {weather.main.humidity}
+                    </p>
+                    <p>
+                        Description: {weather.weather[0].description}
+                    </p>
+                    <p>
+                    <img src ={" http://openweathermap.org/img/wn/09d@2x.png"}
          alt="wthr img" />
                     </p>
-                    
-                    
-                );
-            })}
-        </div>
+               </div>     
+       
     );
 };
 
