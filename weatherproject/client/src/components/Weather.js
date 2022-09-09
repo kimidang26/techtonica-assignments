@@ -50,6 +50,7 @@ const Weather = (props) => {
                     </p>
                     <p>
                         Description: {weather.weather[0].description}
+                        
                     </p>
                     <p>
                     <img src ={" http://openweathermap.org/img/wn/09d@2x.png"}

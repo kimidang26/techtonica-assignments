@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -38,6 +39,22 @@
 }
 
 
-/* color: white;
+p {
+  color: white;
   font-family: Arial Rounded MT Bold; 
-  background-image: url("https://metrolinktrains.com/globalassets/explore/orange/irvine-spectrum-azusa-tarn.jpg") ; */
+  
+}
+
+body {
+  background-image: url("https://i.pinimg.com/736x/a5/e8/14/a5e8145fd8ca1dd5cb85ac1357490c91.jpg") ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+  color: white;
+  font-family: Arial Rounded MT Bold; 
+}
+
