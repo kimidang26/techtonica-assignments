@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List /> matches the Snapshot 1`] = `
+<div
+  data-testid="list-element-1"
+>
+  wash dishes
+</div>
+`;
