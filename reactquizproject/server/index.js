@@ -9,7 +9,7 @@ app.use(cors());
 
 app.get("/api", (req, res_web) => {
     // res.json({ message: "Hello from server!" });
-    const URL= 'https://opentdb.com/api.php?amount=4&category=26&difficulty=easy&type=multiple';
+    const URL= 'https://opentdb.com/api.php?amount=10&category=14&difficulty=easy';
     // if user selects new category, it will be on the req object, need body parser
     fetch(URL)
     //process the data as json
