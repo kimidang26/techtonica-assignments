@@ -4,13 +4,13 @@ import React from 'react';
 
 const Questionaire = ({
     showAnswers, handleAnswer,handleNextQuestion, 
-    data: {question, correct_answer, answers} 
+    data: {question , correct_answer, answers} 
 }) => {
 
 
 
     return  (
-        <div className='flex flex-col'>
+        <div className='flex flex-col' data-testid="list-element">
             <div className='bg-white text-pink-800 p-10 rounded shadow-md '>
                 <h2 className='text-2xl' dangerouslySetInnerHTML={{ __html:question}}/> 
             </div>
@@ -36,7 +36,7 @@ const Questionaire = ({
             {showAnswers && (
                 <button 
                 onClick={handleNextQuestion}
-                className= {` ml-auto bg-pink-300 p-4  font-semibold rounded shadow mt-6`}> 
+                className= {` ml-auto bg-pink-300 p-4  font-semibold rounded shadow mt-6`} > 
                 Next Question
             </button>   
             )}
