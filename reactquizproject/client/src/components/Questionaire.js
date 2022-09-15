@@ -15,7 +15,7 @@ const shuffledAnswers= [ correct_answer, ...incorrect_answers].sort(() => Math.r
                 {shuffledAnswers.map((answer) => (
                 
                 <button 
-                className={`${correct_answer === answer ? 'bg-pink-300' : 'bg-white'} p-4 text-pink-800 font-semibold rounded shadow`} onClick={() => handleAnswer(answer)} > {answer} </button>
+                className= 'bg-white p-4 text-pink-800 font-semibold rounded shadow' onClick={() => handleAnswer(answer)} dangerouslySetInnerHTML={{ __html:answer}} />
                 ))}
             </div>
         </div>
