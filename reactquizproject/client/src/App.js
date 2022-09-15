@@ -9,7 +9,8 @@ function App(props) {
   const [questions,setQuestions] = useState([]);
   const[currentIndex, setCurrentIndex]= useState(0);
   const [score,setScore] = useState(0);
-  const [gameEnded, setGameEnded] =useState(false);
+  const [showAnswers, setShowAnswers] =useState(false);
+ 
 
   // const [isDone, setIsDone]= React.useState(false);
   
@@ -35,33 +36,44 @@ function App(props) {
 // } 
 
 const handleAnswer = (answer) =>{
-  const newIndex = currentIndex+1 
-  setCurrentIndex(newIndex);
-
-  if (answer === questions[currentIndex].correct_answer) {
-    //we want to increase score
-    setScore(score+1);
+  if (!showAnswers) { 
+    // prevent double answers
+    if (answer === questions[currentIndex].correct_answer) {
+      //we want to increase score
+      setScore(score+1);
+      }
   }
 
-  if(newIndex >= questions.length){
-    setGameEnded(true);
-  }
+  setShowAnswers(true)
+  // const newIndex = currentIndex+1 
+  // setCurrentIndex(newIndex);
+ 
 };
 
-  return gameEnded? (
-    <h1 className="text-3xl text-white font-bold">Your score was {score} </h1>
-  ) : (
-   questions.length > 0 ? (
-    <div className="container">
-        
-        <Questionaire data={questions[currentIndex]} 
-          handleAnswer = {handleAnswer}/>
-          
+const handleNextQuestion = () =>{
+  setShowAnswers(false);
+
+  setCurrentIndex(currentIndex + 1);
+}
+
+  return questions.length > 0 ? (
+    <div className='container'>
+    {currentIndex >= questions.length ? (
+      <h1 className="text-3xl text-white font-bold">
+        Game Ended ! Your score is: {score} 
+      </h1>
+    ) : (
+        <Questionaire 
+        data={questions[currentIndex]} 
+        showAnswers={showAnswers}
+        handleNextQuestion={handleNextQuestion}
+        handleAnswer = {handleAnswer}/>
+    )}  
     </div>
       ) : (
         <h2 className="text-2xl text-white font-bold">Loading...</h2>
       
-  ));
+  );
 }
 
 export default App;
