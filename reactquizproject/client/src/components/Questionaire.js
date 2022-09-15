@@ -4,10 +4,11 @@ import React from 'react';
 
 const Questionaire = ({
     showAnswers, handleAnswer,handleNextQuestion, 
-    data: {question, correct_answer, incorrect_answers} 
+    data: {question, correct_answer, answers} 
 }) => {
 
-const shuffledAnswers= [ correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5);
+
+
     return  (
         <div className='flex flex-col'>
             <div className='bg-white text-pink-800 p-10 rounded shadow-md '>
@@ -15,11 +16,11 @@ const shuffledAnswers= [ correct_answer, ...incorrect_answers].sort(() => Math.r
             </div>
             <div className='grid grid-cols-2 gap-6 mt-6'>
                 
-                {shuffledAnswers.map((answer) => {
+                {answers.map((answer) => {
                 
                 const textColor = showAnswers ? 
                 answer === correct_answer ?
-                'text-green-500': 'text-red-500' : "text-pink-500";
+                'text-green-500': 'text-red-500' : "text-pink-700";
 
                 // const textColor = showAnswers ? 'text-white' : 'text-pink-800';
                 return (
