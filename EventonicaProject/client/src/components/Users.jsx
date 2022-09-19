@@ -33,18 +33,21 @@ const Users = () => {
         setEmail("");
         setId("");
     };
-
+    console.log(users)
   return <section className="user-management">
+    
   <h2>User Management</h2>
 
   <ul id="users-list">
     {/* display all existing Users here */}
-    <li>...</li>
+    {/* <li>...</li> */}
+    {listUsers}
+
   </ul>
 
   <div>
     <h3>Add User</h3>
-    <form id="add-user" action="#">
+    <form id="add-user" action="#" onSubmit={handleSubmit}>
       <fieldset>
         <label>Id:</label>
         <input
@@ -65,8 +68,20 @@ const Users = () => {
         name="name"
         required
         onChange={(e) => setName(e.target.value)}
+        
         />
 
+        <label>Email</label>
+        <input
+            value={email}
+            type="email"
+            id="add-user-email"
+            placeholder="email"
+            name="email"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          
+        />
 
       </fieldset>
       {/* Add more form fields here */}
@@ -84,7 +99,9 @@ const Users = () => {
       <input type="submit" />
     </form>
   </div>
-</section>;
+</section>
+
+
 };
 
 export default Users;
