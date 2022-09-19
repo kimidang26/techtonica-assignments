@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import DeleteUser from "./DeleteUser.js";
 
 
 
@@ -34,7 +35,18 @@ const Users = () => {
         setId("");
     };
     console.log(users)
-  return <section className="user-management">
+
+    // delete user
+
+    const handleDeleteUser = (deleteUser) => {
+        const deleteUsers = users.filter((user) => user.id !==deleteUser);
+        console.log(deleteUsers);
+        setUsers(deleteUsers);
+    };
+
+
+  return (
+  <section className="user-management">
     
   <h2>User Management</h2>
 
@@ -85,22 +97,14 @@ const Users = () => {
 
       </fieldset>
       {/* Add more form fields here */}
-      <input type="submit" value="Add" />
+      <input type="submit" value="Add"  />
     </form>
   </div>
-
-  <div>
-    <h3>Delete User</h3>
-    <form id="delete-user" action="#">
-      <fieldset>
-        <label>User ID</label>
-        <input type="text" id="delete-user-id" />
-      </fieldset>
-      <input type="submit" />
-    </form>
-  </div>
+    {/* delete user */}
+  <DeleteUser handleDeleteUser={handleDeleteUser}/>
 </section>
 
+  );
 
 };
 
