@@ -1,6 +1,7 @@
 import React from "react";
 
-const Footer = () => (
+const Footer = () => {
+return (
 <footer>
 <div>
   Star Calendar favicon made by
@@ -14,5 +15,6 @@ const Footer = () => (
 </div>
 </footer>
 );
+};
 
 export default Footer;

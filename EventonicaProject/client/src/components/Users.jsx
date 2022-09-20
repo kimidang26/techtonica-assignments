@@ -4,6 +4,7 @@ import DeleteUser from "./DeleteUser.js";
 
 
 const Users = () => {
+    // mock users
     const marlin = { name: 'Marlin', email: 'marlin@gmail.com', id: '1' };
     const nemo = { name: 'Nemo', email: 'nemo@gmail.com', id: '2' };
     const dory = { name: 'Dory', email: 'dory@gmail.com', id: '3' };
@@ -15,20 +16,21 @@ const Users = () => {
     const [email, setEmail] = useState("");
     const [id, setId] = useState();
 
-
+    
     const listUsers = users.map((user,index) => (
-        <list key={index}>
+        <li key={index}>
             ID: {user.id} NAME: {user.name} EMAIL: {user.email}
-        </list>
+        </li>
     ));
+    
 
 
     //add user
-
+        //submit handler
     const handleSubmit = (e) => {
         e.preventDefault();
         const newUser = { id, name, email};
-
+        //spread syntax, calls everything in users and add newUsers to it
         setUsers([...users, newUser]);
         setName("");
         setEmail("");
@@ -41,6 +43,7 @@ const Users = () => {
     const handleDeleteUser = (deleteUser) => {
         const deleteUsers = users.filter((user) => user.id !==deleteUser);
         console.log(deleteUsers);
+        //get to be in new list
         setUsers(deleteUsers);
     };
 
@@ -50,12 +53,12 @@ const Users = () => {
     
   <h2>User Management</h2>
 
-  <ul id="users-list">
+  <ol id="users-list">
     {/* display all existing Users here */}
     {/* <li>...</li> */}
     {listUsers}
 
-  </ul>
+  </ol>
 
   <div>
     <h3>Add User</h3>
