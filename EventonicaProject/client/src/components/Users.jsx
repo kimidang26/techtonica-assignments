@@ -43,7 +43,7 @@ const Users = () => {
     // delete user
 
     const handleDeleteUser = (deleteUser) => {
-        const deleteUsers = users.filter((user) => user.id !==deleteUser);
+        const deleteUsers = users.filter((i) => i.id !==deleteUser);
         console.log(deleteUsers);
         //get to be in new list
         setUsers(deleteUsers);
