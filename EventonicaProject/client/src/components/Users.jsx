@@ -16,7 +16,9 @@ const Users = () => {
     const [email, setEmail] = useState("");
     const [id, setId] = useState();
 
-    
+    //create new variable
+    //the list u wanna run through
+    //index is part of syntax
     const listUsers = users.map((user,index) => (
         <li key={index}>
             ID: {user.id} NAME: {user.name} EMAIL: {user.email}
