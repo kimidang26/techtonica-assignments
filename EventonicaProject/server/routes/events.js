@@ -22,7 +22,9 @@ router.post('/', async (req, res) => {
     const events = {
       name: req.body.name,
       description: req.body.description,
-      category: req.body.category
+      category: req.body.category,
+      date: req.body.date
+
     };
     console.log(events);
     try {
