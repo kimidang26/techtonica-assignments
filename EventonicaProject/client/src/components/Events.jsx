@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { useState } from "react";
-// import DeleteEvent from "./DeleteEvent.js";
+import DeleteEvent from "./DeleteEvent.js";
 
 //mock events
 const event1 = {
@@ -73,6 +73,14 @@ const Events = () => {
         //updates list with new event
         setEvents([...events, state]);
       }
+
+      const handleDeleteEvent = (deleteEvent) => {
+        const deleteEvents = events.filter((i) => i.id !==deleteEvents);
+        console.log(deleteEvents);
+        //get to be in new list
+        setEvents(deleteEvents);
+    };
+
 
     return (
         <section className="event-management">
@@ -180,6 +188,7 @@ const Events = () => {
                     <input type="submit" />
                 </form>
             </div>
+            <DeleteEvent handleDeleteEvent={handleDeleteEvent}/>
         </section>
     )
 }

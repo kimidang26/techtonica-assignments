@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DeleteUser from "./DeleteUser.js";
 
 
@@ -26,7 +26,34 @@ const Users = () => {
         </li>
     ));
     
+// client/src/components/Users.jsx
+const getUsers = async () => {
+  const response = await fetch('http://localhost:4040/users');
+  const user = await response.json();
+  setUsers(user);
+};
 
+useEffect(() => {
+  getUsers();
+}, []);
+
+// Add new user
+const handleSubmit1 = async (e) => {
+  e.preventDefault();
+  const newUser = { id: " ", name: " ", email: " " };
+
+  const rawResponse = await fetch('http://localhost:4000/users', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newUser)
+  });
+  const content = await rawResponse.json();
+
+  setUsers([...users, content]);
+};
 
     //add user
         //submit handler
