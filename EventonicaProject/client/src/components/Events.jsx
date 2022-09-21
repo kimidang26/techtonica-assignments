@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { useState } from "react";
+// import DeleteEvent from "./DeleteEvent.js";
 
 //mock events
 const event1 = {
@@ -26,6 +27,8 @@ const event3 = {
     category: "Education",
 };
 
+//state is the state before the action
+//action is the event after the state
 const reducer = (state, action) => {
     console.log(action, 'this is the action');
     switch (action.type) {
