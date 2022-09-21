@@ -6,7 +6,7 @@ const DeleteUser = ({handleDeleteUser}) =>{
   const [deleteUserId, setUserIdToDelete] = useState("");
 
 
-  const handleSubmit = (e) => {
+  const handleDelete = (e) => {
     e.preventDefault();
     //function callback
     handleDeleteUser(deleteUserId);
@@ -19,7 +19,7 @@ return (
     <form 
     id="delete-user" 
     //# means destination for this form is this page
-    action="#" onSubmit = {handleSubmit}
+    action="#" onSubmit = {handleDelete}
     // onSubmit={(ev) => {
     //   // prevent the browser from executing the default action of the selected element.
     //   ev.preventDefault();

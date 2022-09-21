@@ -107,6 +107,7 @@ const Users = () => {
     </form>
   </div>
     {/* delete user */}
+    {/* //deleteUser would be the props in this situation to use the callback function */}
   <DeleteUser handleDeleteUser={handleDeleteUser}/>
 </section>
 

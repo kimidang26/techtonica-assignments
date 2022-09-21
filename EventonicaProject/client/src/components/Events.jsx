@@ -86,9 +86,9 @@ const Events = () => {
                         return (
                             <li key={index}>
                                 ID:{event.id},
-                                Name: {event.name},
-                                Date:{event.date},
-                                Description:{event.description} ,
+                                Event: {event.name}, <br />
+                                Date:{event.date}, <br />
+                                Description:{event.description} , <br />
                                 Category: {event.category},
 
                             </li>
@@ -108,6 +108,7 @@ const Events = () => {
                             placeholder="Puppy Cat"
                             value={state.name}
                             onChange={(e) =>
+                              // Whenever you want to update the state (usually from an event handler or after completing a fetch request), you simply call the dispatch function with the appropriate action object: dispatch(actionObject).
                               dispatch({
                                 type: 'editName',
                                 payload: e.target.value

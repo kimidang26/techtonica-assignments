@@ -3,7 +3,7 @@ import cors from 'cors';
 import usersRouter from './routes/users.js';
 
 const app = express();
-const PORT = 4000;
+const PORT = 4040;
 
 app.use(cors());
 
