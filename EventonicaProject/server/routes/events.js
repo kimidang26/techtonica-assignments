@@ -1,9 +1,8 @@
+import db from "../db/db-connection.js";
 import express from "express"; 
 const router = express.Router();
 
-// server/routes/ events.mjs;
 
-import db from "../db/db-connection.js";
 
 /* GET events listing. */
 
@@ -28,15 +27,16 @@ router.post('/', async (req, res) => {
       
 
     };
-    console.log(events);
+    console.log(events, ' hello everyone');
     try {
-      const createdEvents = await db.one(
-        'INSERT INTO events(name, id, date, description, category) VALUES($1, $2. $3, $4, $5) RETURNING *',
-        [events.name, events.id, events.date, events.description, events.category]
+      const createdEvent = await db.one(
+        'INSERT INTO events(id, name, description, category, date) VALUES($1,$2,$3,$4, $5) RETURNING *',
+        [events.id, events.name, events.description, events.category, events.date]
       );
-      console.log(req.body);
-      res.send(createdEvents);
+      console.log(createdEvent);
+      res.send(createdEvent);
     } catch (e) {
+      console.log(e);
       return res.status(400).json({ e });
     }
   });
@@ -44,16 +44,16 @@ router.post('/', async (req, res) => {
 
 /* delete request goes here  */
 
-router.delete('/:id', async (req, res) => {
-    // : acts as a placeholder
-    const eventId = req.params.id;
-    try {
-      await db.none('DELETE FROM events WHERE id=$1', [eventId]);
-      res.send({ status: 'success' });
-    } catch (e) {
-      return res.status(400).json({ e });
-    }
-  });
+// router.delete('/:id', async (req, res) => {
+//     // : acts as a placeholder
+//     const eventsId = req.params.id;
+//     try {
+//       await db.none('DELETE FROM events WHERE id=$1', [eventsId]);
+//       res.send({ status: 'success' });
+//     } catch (e) {
+//       return res.status(400).json({ e });
+//     }
+//   });
 
 
 export default router;

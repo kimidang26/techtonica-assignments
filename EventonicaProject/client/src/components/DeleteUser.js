@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const DeleteUser = ({handleDeleteUser}) =>{
   //useState tells react engine when value change
-  const [deleteUserId, setUserIdToDelete] = useState("");
+  const [deleteUserId, setUserIdToDelete] = useState('');
 
 
   const handleDelete = (e) => {

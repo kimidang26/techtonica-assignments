@@ -79,7 +79,7 @@ const Events = () => {
       };
 
       const [state, dispatch] = useReducer(reducer, initialState);
-      console.log(state)
+      console.log(state);
 
       const handleSubmit = (e) =>{
         e.preventDefault();
@@ -88,22 +88,22 @@ const Events = () => {
       }
 
           // Add new events
-      const handleAddNewEvent = async (e) => {
-        e.preventDefault();
-        const newEvent = { id : state.id, name: state.name, date: state.date , category: state.category, description: state.description};
-        console.log(newEvent);
-        const response = await fetch('http://localhost:4040/events', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(newEvent)
-        });
-        const content = await response.json();
-      
-        setEvents([...events, content]);
-      };  
+          const handleAddEvent = async (e) => {
+            e.preventDefault();
+            const newEvent = { id: state.id, name: state.name, description: state.description, category: state.category, date: state.date };
+            console.log(newEvent);
+            const response = await fetch('http://localhost:4040/events', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newEvent)
+            });
+            const content = await response.json();
+            console.log(content);
+            setEvents([...events, content]);
+        };
 
     //   const handleDeleteEvent = (deleteEvent) => {
     //     const deleteEvents = events.filter((i) => i.id !==deleteEvents);
@@ -136,7 +136,7 @@ const Events = () => {
                 </ul>
 
                 <h3>Add Event</h3>
-                <form id="add-event" action="#" onSubmit={handleSubmit}>
+                <form id="add-event" action="#" onSubmit={handleAddEvent}>
                     <fieldset>
                         <br></br>
                         <label>Name: </label>

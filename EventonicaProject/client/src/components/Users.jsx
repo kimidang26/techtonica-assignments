@@ -11,8 +11,10 @@ const Users = () => {
     const dory = { name: 'Dory', email: 'dory@gmail.com', id: '3' };
 
 
-
+  //useState for users
     const[users,setUsers]= useState([marlin,nemo,dory]);
+
+    //useState for our workings components
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [id, setId] = useState();
@@ -87,9 +89,9 @@ const handleDeleteUsers = async (e) => {
         const newUser = { id, name, email};
         //spread syntax, calls everything in users and add newUsers to it
         setUsers([...users, newUser]);
-        setName("");
-        setEmail("");
-        setId("");
+        setName(' ');
+        setEmail(' ');
+        setId(' ');
     };
     console.log(users)
 

@@ -28,10 +28,12 @@ router.post('/', async (req, res) => {
   console.log(user);
   try {
     const createdUser = await db.one(
+      //creating the query
       'INSERT INTO users(name, email) VALUES($1, $2) RETURNING *',
       [user.name, user.email]
     );
     console.log(createdUser);
+    //update onto backend localhost:4040, now front-end can update the changes
     res.send(createdUser);
   } catch (e) {
     return res.status(400).json({ e });
