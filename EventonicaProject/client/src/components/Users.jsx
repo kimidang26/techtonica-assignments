@@ -37,12 +37,14 @@ useEffect(() => {
   getUsers();
 }, []);
 
-// Add new user
-const handleSubmit1 = async (e) => {
-  e.preventDefault();
-  const newUser = { id: " ", name: " ", email: " " };
 
-  const rawResponse = await fetch('http://localhost:4000/users', {
+
+// Add new user
+const handleAddUser= async (e) => {
+  e.preventDefault();
+  const newUser = { id , name , email };
+
+  const response = await fetch('http://localhost:4040/users', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -50,10 +52,33 @@ const handleSubmit1 = async (e) => {
     },
     body: JSON.stringify(newUser)
   });
-  const content = await rawResponse.json();
+  const content = await response.json();
+
+  setUsers([...users, content]);
+  setName('');
+  setEmail('');
+  setId('');
+
+};
+
+// DELETE USER
+const handleDeleteUsers = async (e) => {
+  e.preventDefault();
+  const newUser = { id, name, email };
+
+  const response = await fetch('http://localhost:4040/users', {
+    method: 'DELETE',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newUser)
+  });
+  const content = await response.json();
 
   setUsers([...users, content]);
 };
+
 
     //add user
         //submit handler
@@ -92,7 +117,7 @@ const handleSubmit1 = async (e) => {
 
   <div>
     <h3>Add User</h3>
-    <form id="add-user" action="#" onSubmit={handleSubmit}>
+    <form id="add-user" action="#" onSubmit={handleAddUser}>
       <fieldset>
         <label>Id:</label>
         <input

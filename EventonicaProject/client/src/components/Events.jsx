@@ -1,6 +1,5 @@
-import { useReducer } from "react";
-import { useState } from "react";
-import DeleteEvent from "./DeleteEvent.js";
+import { useReducer , useEffect, useState} from "react";
+// import DeleteEvent from "./DeleteEvent.js";
 
 //mock events
 const event1 = {
@@ -54,8 +53,21 @@ const reducer = (state, action) => {
   };
 
 const Events = () => {
-    //state for events
-    const [events, setEvents] = useState([event1,event2,event3]);
+
+  //state for events
+  const [events, setEvents] = useState([]);
+
+  const getEvents = async () => {
+    const response = await fetch('http://localhost:4040/events');
+    const events = await response.json();
+    setEvents(events);
+  };
+  
+  useEffect(() => {
+    getEvents();
+  }, []);
+  
+  
 
 //initialistate of the form will be empty
       const initialState = {
@@ -67,6 +79,7 @@ const Events = () => {
       };
 
       const [state, dispatch] = useReducer(reducer, initialState);
+      console.log(state)
 
       const handleSubmit = (e) =>{
         e.preventDefault();
@@ -74,12 +87,30 @@ const Events = () => {
         setEvents([...events, state]);
       }
 
-      const handleDeleteEvent = (deleteEvent) => {
-        const deleteEvents = events.filter((i) => i.id !==deleteEvents);
-        console.log(deleteEvents);
-        //get to be in new list
-        setEvents(deleteEvents);
-    };
+          // Add new events
+      const handleAddNewEvent = async (e) => {
+        e.preventDefault();
+        const newEvent = { id : state.id, name: state.name, date: state.date , category: state.category, description: state.description};
+        console.log(newEvent);
+        const response = await fetch('http://localhost:4040/events', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newEvent)
+        });
+        const content = await response.json();
+      
+        setEvents([...events, content]);
+      };  
+
+    //   const handleDeleteEvent = (deleteEvent) => {
+    //     const deleteEvents = events.filter((i) => i.id !==deleteEvents);
+    //     console.log(deleteEvents);
+    //     //get to be in new list
+    //     setEvents(deleteEvents);
+    // };
 
 
     return (
@@ -159,7 +190,7 @@ const Events = () => {
                         <input
                             type="text"
                             id="add-event-description"
-                            placeholder="Virtual corgi meetup"
+                            placeholder="Description"
                             value={state.description}
                             onChange={(e) =>
                               dispatch({
@@ -188,7 +219,7 @@ const Events = () => {
                     <input type="submit" />
                 </form>
             </div>
-            <DeleteEvent handleDeleteEvent={handleDeleteEvent}/>
+            {/* <DeleteEvent handleDeleteEvent={handleDeleteEvent}/> */}
         </section>
     )
 }

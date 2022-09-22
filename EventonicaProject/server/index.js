@@ -2,12 +2,14 @@ import express from 'express';
 import cors from 'cors';
 import usersRouter from './routes/users.js';
 import eventsRouter from './routes/events.js';
+//added bodyparser to access so in users.js we can access body from req.body.name
+import bodyParser from "body-parser";
 
 const app = express();
 const PORT = 4040;
 
 app.use(cors());
-
+app.use(bodyParser.json())
 app.use('/users', usersRouter)
 app.use('/events', eventsRouter)
 
