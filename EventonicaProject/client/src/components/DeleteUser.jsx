@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 
 
-const DeleteUser = ({handleDeleteUser}) =>{
+const DeleteUser = ({deleteUser}) =>{
   //useState tells react engine when value change
-  const [deleteUserId, setUserIdToDelete] = useState('');
+  const [id, setId] = useState('');
 
 
-  const handleDelete = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     //function callback
-    handleDeleteUser(deleteUserId);
+    deleteUser(id);
+    setId('');
   }
 
 return (
@@ -19,7 +20,7 @@ return (
     <form 
     id="delete-user" 
     //# means destination for this form is this page
-    action="#" onSubmit = {handleDelete}
+    action="#" onSubmit = {handleSubmit}
     // onSubmit={(ev) => {
     //   // prevent the browser from executing the default action of the selected element.
     //   ev.preventDefault();
@@ -31,8 +32,8 @@ return (
         <label>User ID</label>
         <input type="text"
          id="delete-user-id" 
-         value={deleteUserId}
-         onChange={(e) => setUserIdToDelete(e.target.value)}
+         value={id}
+         onChange={(e) => setId(e.target.value)}
          />
       </fieldset>
       <input type="submit" />

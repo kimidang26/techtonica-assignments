@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import DeleteUser from "./DeleteUser.js";
+import {useState, useEffect} from 'react';
+import DeleteUser from "./DeleteUser";
 
 
 
@@ -25,6 +25,7 @@ const Users = () => {
     const listUsers = users.map((user,index) => (
         <li key={index}>
             ID: {user.id} NAME: {user.name} EMAIL: {user.email}
+            <button onClick={()=> handleDeleteUsers(user.id)}>DeleteUser</button>
         </li>
     ));
     
@@ -64,25 +65,26 @@ const handleAddUser= async (e) => {
 };
 
 // DELETE USER
-const handleDeleteUsers = async (e) => {
-  e.preventDefault();
-  const newUser = { id, name, email };
-
-  const response = await fetch('http://localhost:4040/users', {
-    method: 'DELETE',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(newUser)
-  });
-  const content = await response.json();
-
-  setUsers([...users, content]);
-};
+const handleDeleteUsers = async (deleteUser) => {
+  //fetches info from users for specific "deleteUser"
+  let response = await fetch (`http://localhost:4040/users/${deleteUser}`, {
+    //specifies method to remove item
+    method: "DELETE",
+})
+  //gets json response
+  await response.json();
+  //updates the users list
+      const deleteUsers = users.filter((i) => i.id !== deleteUser);
+      console.log(deleteUsers);
+      //updates list
+      setUsers(deleteUsers);
+  };
 
 
-    //add user
+
+
+
+    //ADD USER
         //submit handler
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -95,14 +97,14 @@ const handleDeleteUsers = async (e) => {
     };
     console.log(users)
 
-    // delete user
+    // // delete user
 
-    const handleDeleteUser = (deleteUser) => {
-        const deleteUsers = users.filter((i) => i.id !==deleteUser);
-        console.log(deleteUsers);
-        //get to be in new list
-        setUsers(deleteUsers);
-    };
+    // const handleDeleteUser = (deleteUser) => {
+    //     const deleteUsers = users.filter((i) => i.id !==deleteUser);
+    //     console.log(deleteUsers);
+    //     //get to be in new list
+    //     setUsers(deleteUsers);
+    // };
 
 
   return (
@@ -113,6 +115,7 @@ const handleDeleteUsers = async (e) => {
   <ol id="users-list">
     {/* display all existing Users here */}
     {/* <li>...</li> */}
+
     {listUsers}
 
   </ol>
@@ -162,7 +165,7 @@ const handleDeleteUsers = async (e) => {
   </div>
     {/* delete user */}
     {/* //deleteUser would be the props in this situation to use the callback function */}
-  <DeleteUser handleDeleteUser={handleDeleteUser}/>
+  <DeleteUser handleDeleteUsers={handleDeleteUsers}/>
 </section>
 
   );

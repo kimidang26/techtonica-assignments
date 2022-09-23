@@ -58,7 +58,7 @@ const Events = () => {
   const [events, setEvents] = useState([]);
 
   const getEvents = async () => {
-    const response = await fetch('http://localhost:4040/events');
+    const response = await fetch(`http://localhost:4040/events`);
     const events = await response.json();
     setEvents(events);
   };
@@ -92,7 +92,7 @@ const Events = () => {
             e.preventDefault();
             const newEvent = { id: state.id, name: state.name, description: state.description, category: state.category, date: state.date };
             console.log(newEvent);
-            const response = await fetch('http://localhost:4040/events', {
+            const response = await fetch(`http://localhost:4040/events`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
