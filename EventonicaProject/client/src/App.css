@@ -3,10 +3,12 @@ fieldset {
   margin: 1rem 0;
 }
 
+
 header {
   /* For more about flexbox, see https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
   display: flex;
   align-items: center;
+  background-color:mistyrose;
 }
 
 header img {
@@ -17,7 +19,10 @@ header img {
 main {
   display: flex;
   justify-content: space-between;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: mistyrose;
+  align-items: center;
+
 }
 
 aside {
@@ -28,4 +33,5 @@ footer {
   margin-top: 1rem;
   font-size: small;
   color: gray;
+  background-color: mistyrose;
 }

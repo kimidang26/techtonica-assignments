@@ -1,46 +1,33 @@
-// import React, { useState } from "react";
+import { useState } from "react";
 
+//pass the function deleteUser as a prop(function comes from Users) 
+const DeleteEvent = ({onDeleteEvents}) => {
 
-// const DeleteEvent = ({handleDeleteEvent}) =>{
-//   //useState tells react engine when value change
-//   const [deleteEventId, setEventIdToDelete] = useState("");
+    //stores the userID that will be deleted
+    const [deleteEventId, setDeleteEventId] = useState('');
 
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        //function callback
+        onDeleteEvents(deleteEventId);
+        setDeleteEventId('');
+    }
 
-//   const handleEventOut = (e) => {
-//     e.preventDefault();
-//     //function callback
-//     handleDeleteEvent(deleteEventId);
-//   }
+    return (
+        <div>
+            <h3>Delete Event</h3>
+            <form id="delete-event" action="#" onSubmit={handleSubmit}>
+                <fieldset>
+                    <label>Event ID</label>
+                    <input type="text"
+                     id="delete-event-id" 
+                     value={deleteEventId}
+                    onChange={(e) => setDeleteEventId(e.target.value)}/>
+                </fieldset>
+                <input type="submit" />
+            </form>
+        </div>
+    )
+}
 
-// return (
-//   <>
-// <div>
-//     <h3>Delete Event</h3>
-//     <form 
-//     id="delete-event" 
-//     //# means destination for this form is this page
-//     action="#" onSubmit = {handleEventOut}
-//     // onSubmit={(ev) => {
-//     //   // prevent the browser from executing the default action of the selected element.
-//     //   ev.preventDefault();
-//     //   handleDeleteUser(deleteUserId);
-//     //   setUserIdToDelete("");
-//     // }}
-//     >
-//       <fieldset>
-//         <label>User ID</label>
-//         <input type="text"
-//          id="delete-event-id" 
-//          value={deleteEventId}
-//          onChange={(e) => setEventIdToDelete(e.target.value)}
-//          />
-//       </fieldset>
-//       <input type="submit" />
-//     </form>
-//   </div>
-
-//   </>
-//  );
-// };
-
-// export default DeleteEvent;
+export default DeleteEvent;

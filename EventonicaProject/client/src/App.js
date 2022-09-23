@@ -20,7 +20,7 @@ function App() {
           <Events />
         </div>
 
-        <div>
+        {/* <div>
           <h3>Delete Event</h3>
           <form id="delete-event" action="#">
             <fieldset>
@@ -29,7 +29,7 @@ function App() {
             </fieldset>
             <input type="submit" />
           </form>
-        </div>
+        </div> */}
 
         <aside className="search-toolbar">
           <div>

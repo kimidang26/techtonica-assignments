@@ -1,5 +1,5 @@
 import { useReducer , useEffect, useState} from "react";
-// import DeleteEvent from "./DeleteEvent.js";
+import DeleteEvent from "./DeleteEvent.jsx";
 
 //mock events
 const event1 = {
@@ -47,6 +47,9 @@ const reducer = (state, action) => {
 
         case 'editID':
         return { ...state, id: action.payload };
+
+        case 'clearForm':
+            return {name: " ", id: '', description: '', category: '', date: ''};
       default:
         return state;
     }
@@ -105,12 +108,27 @@ const Events = () => {
             setEvents([...events, content]);
         };
 
-    //   const handleDeleteEvent = (deleteEvent) => {
-    //     const deleteEvents = events.filter((i) => i.id !==deleteEvents);
-    //     console.log(deleteEvents);
-    //     //get to be in new list
-    //     setEvents(deleteEvents);
-    // };
+ // DELETE Events
+ const handleDeleteEvents = async (eventId) => {
+  //fetches info from users for specific "deleteUser"
+  let response = await fetch(`http://localhost:4040/events/${eventId}`, {
+    //specifies method to remove item
+    method: "DELETE",
+  })
+  //gets json response
+  await response.json();
+  //deleting functionality 
+  const deleteEventFunction = events.filter((i) => i.id !== parseInt(eventId));
+  //updates the users list
+  console.log(deleteEventFunction);
+  //updates list
+  setEvents(deleteEventFunction);
+
+};
+
+
+
+
 
 
     return (
@@ -219,7 +237,7 @@ const Events = () => {
                     <input type="submit" />
                 </form>
             </div>
-            {/* <DeleteEvent handleDeleteEvent={handleDeleteEvent}/> */}
+            <DeleteEvent onDeleteEvents={handleDeleteEvents} />
         </section>
     )
 }
